@@ -1,0 +1,33 @@
+syntax = "proto3";
+package risk_models;
+
+// Input: A single trade with attached market context
+message TradeRequest {
+    string trade_id = 1;
+    string counterparty_id = 2;
+    string trade_type = 3; // "OPTION", "SWAP"
+    double notional = 4;
+    double strike = 5;
+    double maturity = 6;
+    
+    // Dummy Market Data Snapshot
+    double spot_price = 7;
+    double volatility = 8;
+    double risk_free_rate = 9;
+}
+
+// Output: Simulation results
+message ValuationResult {
+    string trade_id = 1;
+    string counterparty_id = 2;
+    double present_value = 3;
+    double pfe_95 = 4; // Potential Future Exposure at 95%
+}
+
+// Aggregation: Counterparty Level Risk
+message CounterpartyRisk {
+    string counterparty_id = 1;
+    double total_pv = 2;
+    double total_pfe = 3;
+    double cva_charge = 4; // Credit Value Adjustment
+}
