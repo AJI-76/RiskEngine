@@ -19,8 +19,8 @@ PyBind11
 Visual Studio 2022 (Desktop Development with C++)
 CMake 3.15+
 Python 3.9+
-Protoc Compiler (Must match Python protobuf package version- recommended is 5.29.0)
-
+Protoc Compiler (Must match the Python protobuf package version - recommended is 5.29.0)
+May need to use vcpkg manager to install dependencies for C++ build (e.g., protobuf, pybind11). The protbuf package needs to be downloaded from google.
 ### Setup Instructions
 #### 1. Install Dependencies: 
 	pip install apache-beam numpy protobuf pybind11
