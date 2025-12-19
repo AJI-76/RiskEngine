@@ -1,4 +1,4 @@
-### Quantitative Risk Engine
+### Quantitative Risk Engine for CCR
 A hybrid C++/Python risk engine that performs Monte Carlo simulations for Risk factor Simulations. Uses the simulated factors to price traded derivatives to generate the mark-to-market (MtM) matrices. The matrices are used to generate exposure profiles and aggregated to give Counterparty Credit Risk and XVA measures. It uses Apache Beam (python) to orchestrate the runs.
 
 
