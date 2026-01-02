@@ -18,10 +18,14 @@ message TradeRequest {
 
 // Output: Simulation results
 message ValuationResult {
-    string trade_id = 1;
-    string counterparty_id = 2;
-    double present_value = 3;
-    double pfe_95 = 4; // Potential Future Exposure at 95%
+  string trade_id = 1;
+  string counterparty_id = 2;
+  double present_value = 3;
+  double pfe_95 = 4;
+
+  // Add these (choose numbers that don't conflict with existing fields)
+  repeated double mtm_times = 10;
+  repeated double exposure_profile = 11;
 }
 
 // Aggregation: Counterparty Level Risk
