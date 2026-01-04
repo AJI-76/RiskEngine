@@ -151,7 +151,7 @@ namespace RiskEngine {
 
         // 4. Build MtM matrix: for each simulated S(t) compute option price at that time
         int n_times = static_cast<int>(times.size());
-        // mtm_matrix not stored fully here to save memory; we'll compute exposures on the fly
+        // mtm_matrix not stored fully here to save memory; Computing exposures on the fly
         std::vector<double> exposure_profile(n_times, 0.0);
 
         for (int ti = 0; ti < n_times; ++ti) {
@@ -169,8 +169,8 @@ namespace RiskEngine {
             exposure_profile[ti] = sum_positive / static_cast<double>(paths);
         }
 
-        // 5. Present value and PFE: compute PV as average discounted payoff (same as before)
-        //    and keep pfe_95 from the distribution of discounted payoffs at maturity.
+        // 5. Present value and PFE: compute PV as average discounted payoff
+        //    and (Simplification) keep pfe_95 from the distribution of discounted payoffs at maturity.
         std::vector<double> discounted_payoffs;
         discounted_payoffs.reserve(paths);
         double discount = std::exp(-request.risk_free_rate() * T);
